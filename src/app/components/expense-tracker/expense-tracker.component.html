@@ -1,0 +1,49 @@
+<div class="container full-height" >
+    <div class="row w-100  d-flex justify-content-center align-items-center">
+        <div class="col-md-4 mt-auto">
+            <div class="card p-3">
+                <form (ngSubmit)="addExpense()" [formGroup]="Expenseform">
+               
+                    <div class="formGroup">
+                        <label for="itemName" class="form-label">Item Name</label>
+                        <input type="text" class="form-control" placeholder="Enter item name" formControlName="itemName">
+                    </div>
+                    <div class="formGroup">
+                        <label for="ItemPrice" class="form-label">Item Price</label>
+                        <input type="number"  class="form-control" min="0" placeholder="Enter item price" formControlName="itemPrice">
+                    </div>
+                    <div class="btn-group d-flex gap-2 mt-2">
+                        <button type="sumit" class="btn btn-primary">Add Items</button>
+                        <button type="reset" class="btn btn-primary">Clear All</button>
+                    </div>
+                </form>
+            </div>
+           
+        </div>
+    </div>
+    <div class="row w-100 d-flex justify-content-center align-items-center">
+            <div class="col-md-4" *ngFor="let data of expenseContainer;let i=index">
+                <div class="d-flex justify-content-between align-items-center bg-light rounded border mt-2 p-3 w-100" >
+                    <div>
+                        <h5>{{data.itemName}}</h5>
+                        <span>{{data.itemPrice}}</span>
+                    </div>
+                    <div>
+                        <button class=" btn btn-danger" (click)="removeItem(i)">Delete</button>
+                    </div>
+                   
+                </div>
+            </div>
+           
+        
+    </div>
+    <div class="row mt-3 w-100 d-flex justify-content-center align-items-center">
+        <div class="col-md-4" >
+            <div class="card p-3 d-flex justify-content-center align-items-center">
+               <h3>Total: <span class="text-success">{{calculateTotal()}}</span></h3> 
+            </div>
+        </div>
+       
+    
+</div>
+</div>
