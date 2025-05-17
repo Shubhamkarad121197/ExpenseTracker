@@ -10,7 +10,7 @@ import { FormControl, FormGroup,ReactiveFormsModule, Validators } from '@angular
   styleUrl: './expense-tracker.component.scss'
 })
 export class ExpenseTrackerComponent implements OnChanges,OnInit {
-Expenseform!:FormGroup;
+Expenseform:FormGroup;
 totalExpense:number=0;
 constructor(){
   this.Expenseform=new FormGroup({
